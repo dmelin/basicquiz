@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Services\GameService;
+use App\Services\NumbersApiService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +13,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(GameService::class, function ($app) {
+            return new GameService();
+        });
+
+        $this->app->singleton(NumbersApiService::class, function ($app) {
+            return new NumbersApiService();
+        });
     }
 
     /**

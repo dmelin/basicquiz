@@ -1,0 +1,95 @@
+:root {
+    --bg: #1A1B26;
+    --text: #F9FAFB;
+
+    --btn-primary: #3B82F6;
+    --btn-primary-hover: #2563EB;
+
+    --btn-option: #FACC15;
+    --btn-option-hover: #EAB308;
+
+    --correct: #22C55E;
+    --wrong: #EF4444;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: system-ui, sans-serif;
+
+    .quiz,
+    .victory {
+        width: max(500px, 40vw);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        background: rgba(#000, 0.7);
+
+        padding: 2rem;
+        border-radius: 1rem;
+
+        backdrop-filter: blur(10px);
+
+        .question {
+            margin-bottom: 1rem;
+            font-weight: bold;
+            font-size: 1.25rem;
+
+        }
+
+        .options {
+            display: flex;
+            gap: 1rem;
+
+            button {
+                flex: 1;
+            }
+        }
+    }
+
+    .results {
+
+        ul {
+            list-style: none;
+
+            li {
+
+                &:not(:last-child) {
+                    margin-bottom: 0.5rem;
+                }
+
+                &.correct {
+                    border-left: 3px solid var(--correct);
+                    padding-left: 1rem;
+                }
+
+                &.wrong {
+                    border-left: 3px solid var(--wrong);
+                    padding-left: 1rem;
+                }
+            }
+        }
+    }
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border: none;
+
+    &.new-game {
+        background-color: var(--btn-primary);
+        color: white;
+        margin-bottom: 1rem;
+
+        &:hover {
+            background-color: var(--btn-primary-hover);
+        }
+    }
+}
